@@ -1,140 +1,140 @@
-  <!DOCTYPE HTML>
-  <HTML>
-    <head>
-      <title>
-        Task List Demo
-      </title>
-      <link rel="stylesheet" href="task.css">
-      <script src="task.js"></script>
-    </head>
+<!DOCTYPE HTML>
+<HTML>
 
-    <body>
-      <header style="background-color:lightblue; height:20%; width:auto; margin-top:0px; padding: 10px;">
-          <h3 align= "center"><span>TASK LIST</span></h3>
-          <input type="search" id="search-task" onkeyup="searchTask();" placeholder= "Search for Task" style="background-color:lightyellow; position:relative;"></input>
-          <button id="add-task" style="background-color:lightyellow; margin-right: 20px ;position: absolute; right: 0;" onclick="showAddNewTaskForm()">ADD NEW TASK</button>
-          <button id="assign-task" style="background-color:lightyellow; margin-right: 20px ;position: absolute; right: 200px;" onclick="showAssignTaskForm()">ASSIGN TASK</button>
-      </header>
+  <head>
+    <title>
+      Task List Demo
+    </title>
+    <link rel="stylesheet" href="task.css">
+    <script src="tasklist.js"></script>
+  </head>
 
-      <section id="addTask">
+  <body>
+    <header style="background-color:lightblue; height:20%; width:auto; margin-top:0px; padding: 10px;">
+      <h3 align="center"><span>TASK LIST</span></h3>
+      <input type="search" id="search-task" onkeyup="searchTask();" placeholder="Search for Task" style="background-color:lightyellow; position:relative;"></input>
+      <button id="add-task" style="background-color:lightyellow; margin-right: 20px ;position: absolute; right: 0;" onclick="showAddNewTaskForm()">ADD NEW TASK</button>
+      <button id="assign-task" style="background-color:lightyellow; margin-right: 20px ;position: absolute; right: 200px;" onclick="showAssignTaskForm()">ASSIGN TASK</button>
+    </header>
+
+    <section id="addTask">
       <main style="width:auto; position:relative;">
         <aside style="display:inline-block; background-color:lightgray; border-right: 1px solid; width:160px; height:500px; margin-top:0px; padding:5px;">
-            <h4 align = "Center">Task Name</h4>
-            <nav>
-              <ul id="tasks" style="list-style-type:none; margin-left: 0px">
-                <li>
-                  <a href="#" id="task-1" draggable="true" ondragstart="drag(event)"> Task 1 </a>
-                </li>
-                <li>
-                  <a href="#" id="task-2" draggable="true" ondragstart="drag(event)"> Task 2 </a>
-                </li>
-              </ul>
-            </nav>
-          </aside>
+          <h4 align="Center">Task Name</h4>
+          <nav>
+            <ul id="tasks" style="list-style-type:none; margin-left: 0px">
+              <!-- <li>
+              <a href="#" id="task-1" draggable="true" ondragstart="drag(event)"> Task 1 </a>
+            </li> -->
+          </ul>
+        </nav>
+      </aside>
 
-          <form id="addNewTask" style="display:none; padding-left:10px;padding-top:30px; position: absolute; margin-left:200px; left:10%;">
-            <table>
-              <tr>
-                <td>
-                  <label for="task-title">
-                    Task Title :
-                  </label>
-                </td>
-                <td>
-                  <input id="task-title" type="text" size="50" required></input>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label for="task-description">
-                    Task Description :
-                  </label>
-                </td>
-                <td>
-                  <textarea id="task-description" style="min-width:328px; min-height: 20px; max-width: 600px; max-height: 70px;"></textarea>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label for="task-video">
-                    Task Video :
-                  </label>
-                </td>
-                <td>
-                  <video id="task-video" width="335" height="240" controls>
-                      <source src="mentor.mp4" type="video/mp4">
-                      Your browser does not support the video tag.
-                  </video>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label for="task-location">
-                    Task Location :
-                  </label>
-                </td>
-                <td>
-                  <span id="task-location" ></span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label for="dropContainer">
-                    Task File :
-                  </label>
-                </td>
-                <td>
-                  <div id="dropContainer" style="border:1px solid black; height:40px;" align="center">
-                    Drop Here
-                  </div>
-                  <input type="file" id="fileInput"></input>
-                </td>
-              </tr>
-              <tr>
-                <td colspan="2" align="center">
-                  <input type="submit" value="ADD" style="width:200px; height:40px; margin-top: 20px;" onclick="addTask()"></input>
-                </td>
-              </tr>
-            </table>
-          </form>
+      <form id="addNewTask" style="display:none; padding-left:10px; padding-top:30px; position: absolute; margin-left:200px; left:10%;">
+        <table>
+          <tr>
+            <td>
+              <label for="task-title">
+                Task Title :
+              </label>
+            </td>
+            <td>
+              <input id="task-title" type="text" size="50" required></input>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="task-description">
+                Task Description :
+              </label>
+            </td>
+            <td>
+              <textarea id="task-description" style="min-width:328px; min-height: 20px; max-width: 600px; max-height: 70px;"></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="task-video">
+                Task Video :
+              </label>
+            </td>
+            <td>
+              <video id="task-video" width="335" height="240" controls>
+                <source src="mentor.mp4" type="video/mp4"/>
+                Your browser does not support the video tag.
+              </video>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="task-location">
+                Task Location :
+              </label>
+            </td>
+            <td>
+              <span id="task-location"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="dropContainer">
+                Task File :
+              </label>
+            </td>
+            <td>
+              <div id="dropContainer" style="border:1px solid black; height:40px;" align="center">
+                Drop Here
+              </div>
+              <input type="file" id="fileInput"></input>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center">
+              <input type="button" value="ADD" style="width:200px; height:40px; margin-top: 20px;" onclick="addNewTask();" />
+            </td>
+          </tr>
+        </table>
+      </form>
 
-          <form id="assignTask" align="center" style="display:inline-block; padding-left:10px;padding-top:30px; position: absolute; margin-left:200px; left:10%;">
+      <form id="assignTask" align="center" style="display:inline-block; padding-left:10px;padding-top:30px; position: absolute; margin-left:200px; left:10%;">
+        <h3 align="center">Assign Task</h3>
+        <table width="800px">
+          <tr>
+            <th>
+              Employee 1
+            </th>
+            <th>
+              Employee 2
+            </th>
+            <th>
+              Employee 3
+            </th>
+          </tr>
+          <tr>
+            <td>
+              <p class="emp-task" name="emp-1_Task" id="emp1" ondrop="drop(event)" ondragover="allowDrop(event)"></p>
+            </td>
+            <td>
+              <p class="emp-task" name="emp-2_Task" id="emp2" ondrop="drop(event)" ondragover="allowDrop(event)"></p>
+            </td>
+            <td>
+              <ul class="emp-task" name="emp-3_Task" id="emp3" ondrop="drop(event)" ondragover="allowDrop(event)"></ul>
+            </td>
+          </tr>
+        </table>
+      </form>
 
-            <h3 align="center">Assign Task</h3>
-            <table width="800px">
-              <tr>
-                <th>
-                  Employee 1
-                </th>
-                <th>
-                  Employee 2
-                </th>
-                <th>
-                  Employee 3
-                </th>
-              <tr>
-                <td>
-                  <p class="emp-task" name="emp-1_Task" id="emp1" ondrop="drop(event)" ondragover="allowDrop(event)"></p>
-                </td>
-                <td>
-                  <p class="emp-task" name="emp-2_Task" id="emp2" ondrop="drop(event)" ondragover="allowDrop(event)"></p>
-                </td>
-                <td>
-                  <p class="emp-task" name="emp-3_Task" id="emp3" ondrop="drop(event)" ondragover="allowDrop(event)"></p>
-                </td>
-              </tr>
-            </table>
-          </form>
-      </main>
+    </main>
+    
+  </section>
 
-</section>
-      <footer align= "center" style="background-color:gray; padding:5px; position: relative; bottom: 0px;">
-          <details>
-            <summary>&copy; 2017, Teknotrait Solutions Pvt. Ltd.</summary>
-            <p> - All Rights Reserved.</p>
-            <p>All content and graphics on this web site are the property of the company Data.</p>
-          </details>
-      </footer>
-    </body>
+  <footer align="center" style="background-color:gray; padding:5px; position: relative; bottom: 0px;">
+    <details>
+      <summary>&copy; 2017, Teknotrait Solutions Pvt. Ltd.</summary>
+      <p> - All Rights Reserved.</p>
+      <p>All content and graphics on this web site are the property of the company Data.</p>
+    </details>
+  </footer>
+</body>
 
-  </HTML>
+</HTML>

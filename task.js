@@ -1,15 +1,16 @@
 
 var x ;
 var array = [] ;
-
+var count= 0;
 
 document.addEventListener("DOMContentLoaded", function() {
 
   console.log("Inside Event Listner");
+  console.log(count++);
 
   if (typeof(Storage) !== "undefined") {
 
-    sessionStorage.setItem("tasksList", array);
+    localStorage.setItem("tasksList", array);
   }
 
   loadTask(); // Load existing tasks
@@ -90,6 +91,7 @@ function addTask() {
 
     document.getElementById("tasks").appendChild(li); // Create 'new task' li element
 
+    console.log("gggg");
     console.log("-- store starts --");
 
     if (typeof(Storage) !== "undefined") {
@@ -97,21 +99,25 @@ function addTask() {
         var ul = document.getElementsByTagName('ul');
         var li = ul[0].getElementsByTagName('li');
 
+        console.log("Items:"+ array);
+
         // var array = new Array();
         for (var i = 0; i < li.length; i++) {
           array.push(li[i].innerText);
         }
 
+        console.log(array);
         // Store
-        sessionStorage.setItem("tasksList", array);
-        console.log(sessionStorage.getItem("tasksList"));
+        localStorage.setItem("tasksList", array);
+        console.log(localStorage.getItem("tasksList"));
 
     }
     console.log("-- store ends --");
-
+    console.log("sss");
 }
 
 function loadTask(){
+
 
   console.log("----- load task starts------");
   // var ul = document.getElementsByTagName('ul');
@@ -122,7 +128,7 @@ function loadTask(){
   //   array.push(li[i].innerText);
   // }
 
-  alert(array);
+  console.log(array);
 
   for(var i = 0; i < array.length; i++){
     console.log(array[i]);
@@ -130,9 +136,9 @@ function loadTask(){
 
  console.log("###");
 
- console.log(sessionStorage.getItem("tasksList"));
+ console.log(localStorage.getItem("tasksList"));
 
- // document.getElementById("tasks").innerHTML = sessionStorage.getItem("tasksList");
+ // document.getElementById("tasks").innerHTML = localStorage.getItem("tasksList");
 
  console.log("------ load task ends -----");
 }
@@ -172,13 +178,32 @@ function drop(ev) {
 
 }
 
+// var dropContainer = document.getElementById("dropContainer");
+// dropContainer.ondragover = dropContainer.ondragenter = function(evt) {
+//   evt.preventDefault();
+// };
+//
+// dropContainer.ondrop = function(evt) {
+//   // pretty simple -- but not for IE :(
+//   fileInput.files = evt.dataTransfer.files;
+//   evt.preventDefault();
+// };
+
 var dropContainer = document.getElementById("dropContainer");
 dropContainer.ondragover = dropContainer.ondragenter = function(evt) {
   evt.preventDefault();
+  evt.stopPropagation();
 };
 
 dropContainer.ondrop = function(evt) {
-  // pretty simple -- but not for IE :(
-  fileInput.files = evt.dataTransfer.files;
+  // pretty simple — but not for IE :(
   evt.preventDefault();
+  // if(evt.dataTransfer) {
+  //   fileInput.files = evt.dataTransfer.files;
+  // } else if(evt.target) {
+  //   fileInput.files = evt.target.files;
+  // }
+
+  var files = evt.target.files || evt.dataTransfer.files;
+  fileInput.name = files.name;
 };
